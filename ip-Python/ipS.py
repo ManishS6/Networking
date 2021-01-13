@@ -43,12 +43,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             for i in range(f[2]+1,len(a)):
                 f4+=a[i]
             print("Forth octet is" + f4)
+            F1=int(f1)
             if(F1<A):
                 conn.send("Ip Address in Class A".encode())
                 conn.send("The First Ip Address = 1.0.0.0".encode())
                 conn.send("Subnet Mask = 255.0.0.0".encode())
                 conn.send("The Network Mask = 255.0.0.0".encode())
-            elif(F1>A and F1<B):
+            elif(F1>A and F1<=B):
                 conn.send("Ip Address in Class B".encode())
                 conn.send("The First Ip Address = 128.0.0.0".encode())
                 conn.send("Subnet Mask = 255.255.0.0".encode())

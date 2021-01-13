@@ -8,8 +8,9 @@ while True:
     while True:
         data = conn.recv(4096)
         if not data: break
-        from_client += data
+        from_client += data.decode()
         print(from_client)
-        conn.send("I am SERVER<br>")
+        b="I am SERVER"
+        conn.send(str(b).encode())
     conn.close()
     print('client disconnected')
